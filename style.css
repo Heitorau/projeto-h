@@ -1,0 +1,54 @@
+body{
+  margin:0;
+  font-family:Arial;
+  background:#15202b;
+  color:white;
+}
+
+.login,
+.post-box,
+.post{
+  background:#192734;
+  padding:20px;
+  margin:20px auto;
+  border-radius:10px;
+  width:90%;
+  max-width:600px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button{
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  background:#1da1f2;
+  color:white;
+  cursor:pointer;
+}
+
+.post img,
+.post video{
+  width:100%;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+.hidden{
+  display:none;
+}
+
+.top{
+  background:#1da1f2;
+  padding:15px;
+  text-align:center;
+}
