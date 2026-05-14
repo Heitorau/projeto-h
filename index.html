@@ -1,3 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>H</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#000;
+  color:white;
+  font-family:Arial;
+  display:flex;
+}
+
+/* LOGIN */
+
+#loginScreen{
+
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+
+}
+
+.loginBox{
+
+  background:#111;
+  width:90%;
+  max-width:420px;
+  padding:40px;
+  border-radius:20px;
+
+}
+
+.logo{
+
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#1d9bf0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  font-size:40px;
+  font-weight:bold;
+  margin-bottom:20px;
+
+}
+
+.loginInput{
+
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border:none;
+  border-radius:10px;
+  background:#222;
+  color:white;
+
+}
+
+.loginBtn{
+
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  margin-top:15px;
+  background:#1d9bf0;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+  width:250px;
+  height:100vh;
+  border-right:1px solid #222;
+  padding:20px;
+  position:fixed;
+  background:black;
+
+}
+
+.sidebarLogo{
+
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#1d9bf0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  font-weight:bold;
+  margin-bottom:30px;
+
+}
+
+.menu button{
+
+  width:100%;
+  background:none;
+  border:none;
+  color:white;
+  text-align:left;
+  padding:15px;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+
+}
+
+.menu button:hover{
+
+  background:#111;
+
+}
+
+.profileMini{
+
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+}
+
+.profileMini img{
+
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+
+}
+
+/* MAIN */
+
+.main{
+
+  margin-left:250px;
+  width:100%;
+
+}
+
+.topbar{
+
+  padding:20px;
+  border-bottom:1px solid #222;
+  font-size:22px;
+  font-weight:bold;
+  position:sticky;
+  top:0;
+  background:black;
+
+}
+
+.postBox{
+
+  padding:20px;
+  border-bottom:1px solid #222;
+
+}
+
+textarea{
+
+  width:100%;
+  background:none;
+  border:none;
+  color:white;
+  font-size:20px;
+  resize:none;
+  outline:none;
+  min-height:100px;
+
+}
+
+.inputStyle{
+
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#111;
+  color:white;
+
+}
+
+.postBtn{
+
+  background:#1d9bf0;
+  border:none;
+  color:white;
+  padding:12px 25px;
+  border-radius:30px;
+  margin-top:15px;
+  cursor:pointer;
+  font-weight:bold;
+  float:right;
+
+}
+
+.post{
+
+  padding:20px;
+  border-bottom:1px solid #222;
+
+}
+
+.postHeader{
+
+  display:flex;
+  gap:12px;
+
+}
+
+.postAvatar{
+
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  object-fit:cover;
+
+}
+
+.postContent{
+
+  margin-left:62px;
+  margin-top:10px;
+
+}
+
+.post img,
+.post video{
+
+  width:100%;
+  border-radius:15px;
+  margin-top:15px;
+
+}
+
+.likeBtn{
+
+  background:none;
+  border:none;
+  color:gray;
+  margin-top:15px;
+  cursor:pointer;
+
+}
+
+.likeBtn:hover{
+
+  color:#1d9bf0;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginScreen">
+
+  <div class="loginBox">
+
+    <div class="logo">
+      H
+    </div>
+
+    <input
+      id="username"
+      class="loginInput"
+      placeholder="Usuário"
+    >
+
+    <input
+      id="password"
+      type="password"
+      class="loginInput"
+      placeholder="Senha"
+    >
+
+    <input
+      id="avatar"
+      class="loginInput"
+      placeholder="Foto de perfil (URL)"
+      style="display:none;"
+    >
+
+    <button
+      class="loginBtn"
+      onclick="toggleRegister()"
+    >
+      Criar Conta
+    </button>
+
+    <button
+      class="loginBtn"
+      onclick="register()"
+    >
+      Confirmar Cadastro
+    </button>
+
+    <button
+      class="loginBtn"
+      onclick="login()"
+    >
+      Entrar
+    </button>
+
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+  <div class="sidebarLogo">
+    H
+  </div>
+
+  <div class="menu">
+
+    <button>🏠 Início</button>
+
+    <button onclick="logout()">
+      🚪 Sair
+    </button>
+
+  </div>
+
+  <div class="profileMini">
+
+    <img
+      id="sidebarAvatar"
+      src="https://i.imgur.com/HeIi0wU.png"
+    >
+
+    <div id="sidebarName">
+      @usuario
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+  <div class="topbar">
+
+    <span id="welcomeText">
+      Página Inicial
+    </span>
+
+  </div>
+
+  <!-- POST -->
+
+  <div class="postBox">
+
+    <textarea
+      id="texto"
+      placeholder="O que está acontecendo?"
+    ></textarea>
+
+    <input
+      id="media"
+      class="inputStyle"
+      type="file"
+      accept="image/*,video/*"
+    >
+
+    <select
+      id="tipo"
+      class="inputStyle"
+    >
+
+      <option value="image">
+        Imagem
+      </option>
+
+      <option value="video">
+        Vídeo
+      </option>
+
+    </select>
+
+    <button
+      class="postBtn"
+      onclick="postar()"
+    >
+      Postar
+    </button>
+
+    <div style="clear:both"></div>
+
+  </div>
+
+  <!-- FEED -->
+
+  <div id="feed"></div>
+
+</div>
+
 <script>
 
 const API =
@@ -8,6 +444,7 @@ let currentUser = null;
 let registerMode = false;
 
 /* LOGIN AUTOMÁTICO */
+
 window.onload = () => {
 
   const savedUser =
@@ -15,37 +452,23 @@ window.onload = () => {
 
   if(savedUser){
 
-    try{
+    currentUser =
+      JSON.parse(savedUser);
 
-      currentUser =
-        JSON.parse(savedUser);
-
-      if(currentUser && currentUser.username){
-
-        entrarNoSistema();
-
-      } else {
-
-        localStorage.removeItem("miniHUser");
-
-      }
-
-    } catch(e){
-
-      localStorage.removeItem("miniHUser");
-
-    }
+    entrarNoSistema();
 
   }
 
 };
 
 /* API */
+
 async function api(data){
 
   const req = await fetch(API, {
 
     method:"POST",
+
     body:JSON.stringify(data)
 
   });
@@ -55,13 +478,16 @@ async function api(data){
 }
 
 /* REGISTER */
+
 function toggleRegister(){
 
   registerMode = !registerMode;
 
   document.getElementById("avatar")
     .style.display =
-      registerMode ? "block" : "none";
+      registerMode
+      ? "block"
+      : "none";
 
 }
 
@@ -79,8 +505,11 @@ async function register(){
   const res = await api({
 
     action:"register",
+
     username,
+
     password,
+
     avatar
 
   });
@@ -90,6 +519,7 @@ async function register(){
 }
 
 /* LOGIN */
+
 async function login(){
 
   const username =
@@ -101,7 +531,9 @@ async function login(){
   const res = await api({
 
     action:"login",
+
     username,
+
     password
 
   });
@@ -126,6 +558,7 @@ async function login(){
 }
 
 /* ENTRAR */
+
 function entrarNoSistema(){
 
   document.getElementById("loginScreen")
@@ -150,14 +583,19 @@ function entrarNoSistema(){
 }
 
 /* LOGOUT */
+
 function logout(){
 
-  localStorage.removeItem("miniHUser");
+  localStorage.removeItem(
+    "miniHUser"
+  );
+
   location.reload();
 
 }
 
 /* BASE64 */
+
 function toBase64(file){
 
   return new Promise((resolve,reject)=>{
@@ -171,13 +609,14 @@ function toBase64(file){
       () => resolve(reader.result);
 
     reader.onerror =
-      err => reject(err);
+      error => reject(error);
 
   });
 
 }
 
 /* POSTAR */
+
 async function postar(){
 
   const savedUser =
@@ -190,9 +629,13 @@ async function postar(){
 
   }
 
-  if(!currentUser || !currentUser.username){
+  if(
+    !currentUser ||
+    !currentUser.username
+  ){
 
     alert("Faça login");
+
     return;
 
   }
@@ -200,8 +643,11 @@ async function postar(){
   const texto =
     document.getElementById("texto").value;
 
+  const mediaInput =
+    document.getElementById("media");
+
   const file =
-    document.getElementById("media").files[0];
+    mediaInput.files[0];
 
   const tipo =
     document.getElementById("tipo").value;
@@ -218,10 +664,15 @@ async function postar(){
   const res = await api({
 
     action:"createPost",
+
     username:currentUser.username,
-    avatar:currentUser.avatar || "",
+
+    avatar:currentUser.avatar,
+
     texto,
+
     media,
+
     tipo
 
   });
@@ -229,6 +680,7 @@ async function postar(){
   if(res.success){
 
     document.getElementById("texto").value = "";
+
     document.getElementById("media").value = "";
 
     loadPosts();
@@ -238,10 +690,15 @@ async function postar(){
 }
 
 /* POSTS */
+
 async function loadPosts(){
 
   const posts =
-    await api({ action:"getPosts" });
+    await api({
+
+      action:"getPosts"
+
+    });
 
   const feed =
     document.getElementById("feed");
@@ -274,12 +731,18 @@ async function loadPosts(){
 
         <div class="postHeader">
 
-          <img class="postAvatar"
-            src="${post.avatar || "https://i.imgur.com/HeIi0wU.png"}">
+          <img
+            class="postAvatar"
+            src="${
+              post.avatar ||
+              "https://i.imgur.com/HeIi0wU.png"
+            }"
+          >
 
           <div>
 
             <b>${post.username}</b>
+
             <div style="color:gray;">
               @${post.username}
             </div>
@@ -294,8 +757,10 @@ async function loadPosts(){
 
           ${mediaHTML}
 
-          <button class="likeBtn"
-            onclick="curtir('${post.id}')">
+          <button
+            class="likeBtn"
+            onclick="curtir('${post.id}')"
+          >
 
             ❤️ ${post.likes}
 
@@ -312,11 +777,13 @@ async function loadPosts(){
 }
 
 /* CURTIR */
+
 async function curtir(id){
 
   await api({
 
     action:"likePost",
+
     id
 
   });
@@ -326,3 +793,7 @@ async function curtir(id){
 }
 
 </script>
+
+</body>
+
+</html>
